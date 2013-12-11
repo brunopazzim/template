@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: PROJECT_NAME_development
+  pool: 5
+  # username: postgres
+  # password: password
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: PROJECT_NAME_test
+  pool: 5
+  # username: postgres
+  # password: password

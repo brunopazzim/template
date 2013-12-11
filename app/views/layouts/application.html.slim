@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    /[if lt IE 9]
+      = javascript_include_tag "//html5shiv.googlecode.com/svn/trunk/html5.js"
+      meta[content="text/html; charset=utf-8" http-equiv="Content-Type"]
+    title PROJECT_NAME
+    = stylesheet_link_tag "application", media: "all"
+    = csrf_meta_tags
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    meta[property='og:title' content="#{content_for?(:og_title) ? yield(:og_title) : "PROJECT_NAME"}"]
+    meta[property='og:site_name' content="#{content_for?(:og_site_name) ? yield(:og_site_name) : "PROJECT_NAME"}"]
+
+  body
+    = render 'layouts/flash', flash: flash unless flash.empty?
+    = render 'layouts/header'
+    = yield
+    = render 'layouts/footer'
+    = javascript_include_tag "application"
