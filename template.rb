@@ -16,7 +16,7 @@ run 'echo "config/database.yml" >> .gitignore'
 git add: "."
 git commit: '-m "Initial commit"'
 
-@template_root = File.expand_path(File.join(File.dirname(__FILE__)))
+@template_root = File.expand_path(File.join(File.dirname(__FILE__), "files"))
 @views_root = File.join(@template_root, "app", "views")
 @asset_root = File.join(@template_root, "app", "assets")
 @stylesheet_root = File.join(@asset_root, "stylesheets")
