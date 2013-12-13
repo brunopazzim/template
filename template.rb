@@ -33,6 +33,15 @@ run "rake db:create db:migrate"
 run "rails generate rspec:install"
 run "rails generate machinist:install"
 
+simple_cov_prepend = <<-EOF
+require 'simplecov'
+SimpleCov.start 'rails' do
+  # add_filter '/app/admin'
+end
+EOF
+
+run "content=$(cat spec/spec_helper.rb) && echo \"#{simple_cov_prepend}\n$content\" > spec/spec_helper.rb"
+
 git add: "."
 git commit: '-am "Basic gems"'
 
