@@ -42,6 +42,21 @@ EOF
 
 run "content=$(cat spec/spec_helper.rb) && echo \"#{simple_cov_prepend}\n$content\" > spec/spec_helper.rb"
 
+gsub_file "spec/spec_helper.rb", 'config.order = "random"', 'config.order = "random"
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end'
+
 git add: "."
 git commit: '-am "Basic gems"'
 
