@@ -31,6 +31,8 @@ gsub_file "config/database.yml", "PROJECT_NAME", @app_name_files
 run "bundle install"
 run "rake db:create db:migrate"
 run "rails generate rspec:install"
+run "rails generate machinist:install"
+
 git add: "."
 git commit: '-am "Basic gems"'
 
