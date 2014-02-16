@@ -84,7 +84,7 @@ run "mkdir app/assets/stylesheets/#{@app_name_files}"
 run "touch app/assets/stylesheets/#{@app_name_files}/.keep"
 run "cp -r #{File.join(@views_root, "layouts")} app/views"
 run "mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss"
-run 'echo "@import \"twitter/bootstrap\" >> app/assets/stylesheets/application.css.scss'
+run 'echo "@import \"twitter/bootstrap\"" >> app/assets/stylesheets/application.css.scss'
 gsub_file "app/assets/stylesheets/application.css.scss", "require_tree .", "require_tree ./#{@app_name_files}"
 gsub_file "app/assets/javascripts/application.js", "//= require turbolinks\n", ""
 gsub_file "app/assets/javascripts/#{@app_name_files}/#{@app_name_files}.js.coffee", "PROJECT_NAME", @app_name.camelize
